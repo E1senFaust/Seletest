@@ -33,7 +33,7 @@ public class Ranotest {
         WebElement disconnectButton = driver.findElement(By.id("connect"));
         disconnectButton.click();
         WebElement connectionStatus = driver.findElement(By.id("connection"));
-        assertTrue (connectionStatus.getText().toString().equals("Offline"));
+        assertTrue (connectionStatus.getText().toString().equals("Offline"), "Was not Offline");
     }
 
     @Test
@@ -53,7 +53,7 @@ public class Ranotest {
         assertEquals(firstNameEntered.getText().toString(), "Roboute");
         assertEquals(lastNameEntered.getText().toString(), "Guiliman");
     }
-
+//some test shit
     @AfterTest
     public void Endtest(){
         driver.quit();
