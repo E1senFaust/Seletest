@@ -42,7 +42,7 @@ public class Ranotest {
     }
 
     @Test
-    public void AddPerson(){
+    public void AddPerson() throws InterruptedException {
         //Found the First name textbox, click on it  and fill it in with valid data
         WebElement firstNameInput = driver.findElement(By.id("FirstName"));
         firstNameInput.click();
@@ -78,7 +78,14 @@ public class Ranotest {
         WebElement vipCount = driver.findElement(By.xpath("//*[@id=\"count\"]"));
         assertEquals(firstNameEntered.getText().toString(), "Roboute");
         assertEquals(lastNameEntered.getText().toString(), "Guiliman");
-        assertEquals(vipCount.getText().toString(), "VIP count: 0", "VIP count is not equal 1");
+        assertEquals(vipCount.getText().toString(), "VIP count: 1", "VIP count is not equal 1");
+
+        //Click Clear button
+        WebElement clearButton = driver.findElement(By.id("Clear"));
+        clearButton.click();
+
+        //check counter
+        assertEquals(vipCount.getText().toString(), "VIP count: 0", "VIP count is not equal 0");
     }
 //endregion
 
